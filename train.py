@@ -8,13 +8,13 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import Trainer, TrainingArguments, DataCollatorWithPadding
 
 
-config = VLMConfig(vision_model_path='/home/zhangxichen/dl2/vlm_from_scratch/models/vision_model/siglip-base-patch16-224', image_pad_num=49)
+config = VLMConfig(vision_model_path='.models/vision_model/siglip-base-patch16-224', image_pad_num=49)
 model = VLM(config).cuda()
 print(model)
 print(f'模型参数量为：{sum(p.numel() for p in model.parameters() if p.requires_grad)}')
 
-images_path = '/home/zhangxichen/dl2/vlm_from_scratch/dataset/pretrain_images'
-jsonl_path = '/home/zhangxichen/dl2/vlm_from_scratch/dataset/pretrain_data.jsonl'
+images_path = '.dataset/pretrain_images'
+jsonl_path = '.dataset/pretrain_data.jsonl'
 tokenizer = AutoTokenizer.from_pretrained(config.llm_model_path)
 processor = AutoProcessor.from_pretrained(config.vision_model_path)
 

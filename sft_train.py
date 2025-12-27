@@ -14,7 +14,7 @@ tokenizer = AutoTokenizer.from_pretrained(config.llm_model_path)
 AutoConfig.register("vlm_model", VLMConfig)
 AutoModelForCausalLM.register(VLMConfig, VLM)
 
-model = AutoModelForCausalLM.from_pretrained('/home/zhangxichen/dl2/vlm_from_scratch/save/pretrain')
+model = AutoModelForCausalLM.from_pretrained('.save/pretrain')
 
 # for name, param in model.named_parameters():
 #     if 'linear' in name or 'vision_model':
@@ -31,8 +31,8 @@ for name, param in model.named_parameters():
 print(f'模型参数量为：{sum(p.numel() for p in model.parameters())}') 
 print(f'模型可训练参数量为：{sum(p.numel() for p in model.parameters() if p.requires_grad)}') 
 
-images_path = '/home/zhangxichen/dl2/vlm_from_scratch/dataset/sft_images'
-jsonl_path = '/home/zhangxichen/dl2/vlm_from_scratch/dataset/sft_data.jsonl'
+images_path = '.dataset/sft_images'
+jsonl_path = '.dataset/sft_data.jsonl'
 output_dir = 'save/sft' 
 
 args = TrainingArguments(
