@@ -1,0 +1,12 @@
+{
+  "architectures": [
+    "VLM"
+  ],
+  "dtype": "float32",
+  "freeze_vision_model": true,
+  "image_pad_num": 49,
+  "llm_model_path": "Qwen/Qwen3-0.6B",
+  "model_type": "vlm_model",
+  "transformers_version": "4.57.1",
+  "vision_model_path": "/home/zhangxichen/dl2/vlm_from_scratch/models/vision_model/siglip-base-patch16-224"
+}
